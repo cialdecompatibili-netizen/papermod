@@ -20,3 +20,20 @@ collections:
       - {label: Tags, name: tags, widget: list, required: false, default: ["test"]}
       - {label: Featured Image, name: featured_image, widget: image, required: false, default: "/images/blog/blog-4.jpg"}
       - {label: Body, name: body, widget: markdown}
+  - name: pages
+    label: Pagine
+    files:
+      - label: Homepage
+        name: home
+        file: content/_index.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Body, name: body, widget: markdown}
+      - label: Chi Siamo
+        name: about
+        file: content/company/_index.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Body, name: body, widget: markdown}
