@@ -31,7 +31,7 @@ This is pre text
 
 ### Code block with backticks
 
-```{hl_lines=\[2,8]}
+**A:**
 <!DOCTYPE html>
 <html lang="en">
   <head>
