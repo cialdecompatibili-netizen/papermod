@@ -1,4 +1,5 @@
 baseURL = "https://papermod-1rp.pages.dev/"
+buildFuture = true
 title = "Saasify"
 defaultContentLanguage = "en"
 
@@ -147,7 +148,6 @@ enableGitInfo = true
   [module.hugoVersion]
     extended = true
     min = "0.80.0"
-  buildFuture = true
 
 [build]
   writeStats = true
