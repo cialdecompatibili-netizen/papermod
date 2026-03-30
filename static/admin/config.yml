@@ -15,8 +15,8 @@ collections:
       - {label: Title, name: title, widget: string}
       - {label: Date, name: date, widget: datetime}
       - {label: Description, name: description, widget: string, required: false}
-      - {label: Author, name: author, widget: string, required: false}
-      - {label: Categories, name: categories, widget: list, required: false}
-      - {label: Tags, name: tags, widget: list, required: false}
-      - {label: Featured Image, name: featured_image, widget: string, required: false}
+      - {label: Author, name: author, widget: string, required: false, default: "Il tuo nome"}
+      - {label: Categories, name: categories, widget: list, required: false, default: ["Test"]}
+      - {label: Tags, name: tags, widget: list, required: false, default: ["test"]}
+      - {label: Featured Image, name: featured_image, widget: string, required: false, default: "/images/blog/blog-1.webp"}
       - {label: Body, name: body, widget: markdown}
