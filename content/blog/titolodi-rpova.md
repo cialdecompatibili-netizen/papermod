@@ -7,6 +7,6 @@ categories:
   - Test
 tags:
   - test
-featured_image: /images/blog/blog-1.webp
+featured_image: static/images/team.jpg
 ---
 testo dell'articoloa aaaaaaaaaaaaa
