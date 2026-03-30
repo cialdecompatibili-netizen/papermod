@@ -3,6 +3,7 @@ backend:
   repo: cialdecompatibili-netizen/papermod
   branch: main
   base_url: https://papermod-1rp.pages.dev
+  auth_endpoint: api/auth
 media_folder: static/images
 public_folder: /images
 collections:
