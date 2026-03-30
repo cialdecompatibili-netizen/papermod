@@ -2,12 +2,9 @@ backend:
   name: github
   repo: cialdecompatibili-netizen/papermod
   branch: main
-  auth_type: pkce
-  app_id: Ov23liQBPb6SCwsxGhvs
-
+  base_url: https://blue-bird-390f.tuttomazza23.workers.dev
 media_folder: static/images
 public_folder: /images
-
 collections:
   - name: posts
     label: Posts
