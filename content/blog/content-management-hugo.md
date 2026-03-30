@@ -1,16 +1,22 @@
 ---
 title: "Content Management in Hugo: Best Practices"
 date: 2023-07-24
-author: "Michael Park"
-description: "Learn effective strategies for managing content in Hugo, from organizing your content structure to implementing taxonomies and creating dynamic content relationships."
-categories: ["Content"]
-tags: ["hugo", "content-management", "organization", "workflow"]
-featured_image: "/images/blog/blog-5.jpg"
+author: Michael Park
+description: Learn effective strategies for managing content in Hugo, from
+  organizing your content structure to implementing taxonomies and creating
+  dynamic content relationships.
+categories:
+  - Content
+tags:
+  - hugo
+  - content-management
+  - organization
+  - workflow
+featured_image: /images/blog/blog-5.jpg
 ---
-
 {{< toc >}}
 
-## Introduction
+## Introduction ttttttttttttttttttttttttttttttt
 
 Effective content management is crucial for maintaining a scalable Hugo site. This guide covers best practices for organizing and managing your content.
 
@@ -35,27 +41,28 @@ content/
 
 Use archetypes to standardize content:
 
-{{< code yaml "archetypes/blog.md" >}}
----
+## {{< code yaml "archetypes/blog.md" >}}
+
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-categories: []
-tags: []
+categories: \[]
+tags: \[]
 featured_image: ""
 description: ""
 author: ""
----
 
-{{</* toc */>}}
+- - -
+
+{{</ *toc* />}}
 
 ## Introduction
 
-[Your introduction here]
+\[Your introduction here]
 
 ## Main Content
 
-[Your content here]
+\[Your content here]
 {{< /code >}}
 
 ## Content Types
@@ -63,16 +70,17 @@ author: ""
 ### Page Bundles
 
 Organize related content together:
-- Group images with content
-- Manage page resources
-- Maintain content hierarchy
+
+* Group images with content
+* Manage page resources
+* Maintain content hierarchy
 
 ### Taxonomies
 
 Create meaningful content relationships:
 
 {{< code toml "config.toml" >}}
-[taxonomies]
+\[taxonomies]
   category = "categories"
   tag = "tags"
   series = "series"
@@ -84,33 +92,35 @@ Create meaningful content relationships:
 ### Draft Management
 
 1. **Creating Drafts**
+
    ```bash
    hugo new blog/my-draft-post.md
    ```
-
 2. **Preview Drafts**
+
    ```bash
    hugo server -D
    ```
-
 3. **Publishing Content**
-   - Update front matter
-   - Review content
-   - Deploy changes
+
+   * Update front matter
+   * Review content
+   * Deploy changes
 
 ### Content Updates
 
 Maintain content freshness:
 
 1. **Regular Reviews**
-   - Check for outdated information
-   - Update screenshots
-   - Verify external links
 
+   * Check for outdated information
+   * Update screenshots
+   * Verify external links
 2. **Version Control**
-   - Track content changes
-   - Collaborate with team
-   - Maintain history
+
+   * Track content changes
+   * Collaborate with team
+   * Maintain history
 
 ## Dynamic Content
 
@@ -119,6 +129,7 @@ Maintain content freshness:
 {{< code html "layouts/partials/related.html" >}}
 {{ $related := .Site.RegularPages.Related . | first 3 }}
 {{ with $related }}
+
   <h3>Related Posts</h3>
   <ul>
     {{ range . }}
@@ -133,6 +144,7 @@ Maintain content freshness:
 Create reusable content snippets:
 
 {{< code html "layouts/shortcodes/notice.html" >}}
+
 <div class="notice notice-{{ .Get 0 }}">
   {{ .Inner | markdownify }}
 </div>
@@ -150,14 +162,15 @@ Create reusable content snippets:
 ### Backup Strategies
 
 1. **Version Control**
-   - Git repository
-   - Regular commits
-   - Remote backups
 
+   * Git repository
+   * Regular commits
+   * Remote backups
 2. **External Storage**
-   - Cloud storage
-   - Local backups
-   - Asset management
+
+   * Cloud storage
+   * Local backups
+   * Asset management
 
 ## Conclusion
 
@@ -165,6 +178,6 @@ Good content management practices are essential for maintaining a successful Hug
 
 ## Resources
 
-- [Hugo Content Management Documentation](https://gohugo.io/content-management/)
-- [Hugo Archetypes Guide](https://gohugo.io/content-management/archetypes/)
-- [Hugo Taxonomies Documentation](https://gohugo.io/content-management/taxonomies/)
+* [Hugo Content Management Documentation](https://gohugo.io/content-management/)
+* [Hugo Archetypes Guide](https://gohugo.io/content-management/archetypes/)
+* [Hugo Taxonomies Documentation](https://gohugo.io/content-management/taxonomies/)
