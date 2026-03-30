@@ -5,16 +5,16 @@ backend:
   auth_type: implicit
   app_id: Ov23liQBPb6SCwsxGhvs
 
-media_folder: static/images
-public_folder: /images
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: posts
-    label: Post
-    folder: content/posts
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
     create: true
+    slug: "{{slug}}"
     fields:
-      - {label: Titolo, name: title, widget: string}
-      - {label: Data, name: date, widget: datetime}
-      - {label: Contenuto, name: body, widget: markdown}
-      - {label: Tags, name: tags, widget: list, required: false}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
