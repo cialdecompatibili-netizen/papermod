@@ -4,17 +4,5 @@ backend:
   branch: main
   auth_type: implicit
   app_id: Ov23liQBPb6SCwsxGhvs
-
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  base_url: https://merry-brioche-cb55be.netlify.app
+  auth_endpoint: oauth
