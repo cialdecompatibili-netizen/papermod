@@ -4,8 +4,8 @@ backend:
   branch: main
   base_url: https://papermod-1rp.pages.dev
   auth_endpoint: api/auth
-media_folder: static/images
-public_folder: /images
+media_folder: static/images/blog
+public_folder: /images/blog
 collections:
   - name: blog
     label: Blog
@@ -18,5 +18,5 @@ collections:
       - {label: Author, name: author, widget: string, required: false, default: "Il tuo nome"}
       - {label: Categories, name: categories, widget: list, required: false, default: ["Test"]}
       - {label: Tags, name: tags, widget: list, required: false, default: ["test"]}
-      - {label: Featured Image, name: featured_image, widget: string, required: false, default: "/images/blog/blog-1.webp"}
+      - {label: Featured Image, name: featured_image, widget: image, required: false, default: "/images/blog/blog-1.webp"}
       - {label: Body, name: body, widget: markdown}
