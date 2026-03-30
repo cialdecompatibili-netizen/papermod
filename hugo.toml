@@ -150,6 +150,7 @@ enableGitInfo = true
 
 [build]
   writeStats = true
+  buildFuture = true
 
 [build.buildStats]
   enable = true
