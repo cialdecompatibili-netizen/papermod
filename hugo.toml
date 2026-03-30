@@ -147,10 +147,10 @@ enableGitInfo = true
   [module.hugoVersion]
     extended = true
     min = "0.80.0"
+  buildFuture = true
 
 [build]
   writeStats = true
-  buildFuture = true
 
 [build.buildStats]
   enable = true
