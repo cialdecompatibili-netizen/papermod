@@ -4,7 +4,7 @@ date: 2026-03-30T23:38:00.000Z
 description: anno zero
 author: Il tuo nome
 categories:
-  - Test
+  - test
 tags:
   - test
 featured_image: /images/blog/blog-1.webp
