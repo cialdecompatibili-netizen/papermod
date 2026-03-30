@@ -2,7 +2,8 @@ baseURL = "https://cialdecompatibili-netizen.github.io/papermod/"
 languageCode = "it"
 title = "Test PaperMod"
 theme = "hugo-PaperMod-master"
-paginate = 10
+[pagination]
+  pagerSize = 10
 
 [params]
   defaultTheme = "auto"
