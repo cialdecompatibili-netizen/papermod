@@ -2,7 +2,7 @@ backend:
   name: github
   repo: cialdecompatibili-netizen/papermod
   branch: main
-  base_url: https://blue-bird-390f.tuttomazza23.workers.dev
+  base_url: https://papermod-1rp.pages.dev
 media_folder: static/images
 public_folder: /images
 collections:
