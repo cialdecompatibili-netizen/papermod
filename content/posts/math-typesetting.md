@@ -8,6 +8,8 @@ ShowBreadCrumbs: false
 ---
 AAAAAA Prova modifica file Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.
 
+Ciao questa è la **prova** della modifica
+
 <!--more-->
 
 In this example we will be using [KaTeX](https://katex.org/)
