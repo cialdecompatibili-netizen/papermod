@@ -1,21 +1,27 @@
 ---
-author: ["Aditya Telange"]
-title: "Code Syntax Guide"
-date: "2019-03-10"
-description: "Sample article showcasing basic code syntax and formatting for HTML elements."
-summary: "Sample article showcasing basic code syntax and formatting for HTML elements."
-tags: ["markdown", "syntax", "code",]
-categories: ["themes", "syntax"]
-series: ["Themes Guide"]
+summary: Sample article showcasing basic code syntax and formatting for HTML elements.
 ShowToc: true
-TocOpen: true
+author:
+  - Aditya Telange
 social:
   fediverse_creator: "@adityatelange@mastodon.social"
+date: 2019-03-10
+TocOpen: true
+series:
+  - Themes Guide
+title: Code Syntax Guide
+tags:
+  - markdown
+  - syntax
+  - code
+categories:
+  - themes
+  - syntax
+description: Sample article showcasing basic code syntax and formatting for HTML elements.
 ---
-
 ### Inline Code
 
-`This is Inline Code`
+`This is Inline Code hack`
 
 ### Only `pre`
 
@@ -25,7 +31,7 @@ This is pre text
 
 ### Code block with backticks
 
-```{hl_lines=[2,8]}
+```{hl_lines=\[2,8]}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +69,7 @@ This is pre text
 
 ### Code block with backticks and language specified with line numbers
 
-```html {linenos=true}
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -82,9 +88,9 @@ This is pre text
 
 ### Code block with line numbers and <mark>highlighted</mark> lines
 
-- PaperMod supports `linenos=true` or `linenos=table`
+* PaperMod supports `linenos=true` or `linenos=table`
 
-```html {linenos=true,hl_lines=[2,8]}
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,10 +107,10 @@ This is pre text
 </html>
 ```
 
-- <del>With `linenos=inline` line <mark>**might not** get highlighted</mark> properly.<del>
-- This issue is fixed with [045c084](https://github.com/adityatelange/hugo-PaperMod/commit/045c08496d61b1b3f9c79e69e7d3d243a526d8f3)
+* <del>With `linenos=inline` line <mark>**might not** get highlighted</mark> properly.<del>
+* This issue is fixed with [045c084](https://github.com/adityatelange/hugo-PaperMod/commit/045c08496d61b1b3f9c79e69e7d3d243a526d8f3)
 
-```html {linenos=inline,hl_lines=[2,8]}
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -123,22 +129,25 @@ This is pre text
 
 ### Code block indented with four spaces
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example HTML5 Document</title>
+</head>
+<body>
+  <p>Test</p>
+</body>
+</html>
+```
 
 ### Code block with Hugo's internal highlight shortcode
 
 {{< highlight html >}}
 
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
