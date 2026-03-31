@@ -1,7 +1,10 @@
 baseURL = "https://papermod-1rp.pages.dev/"
 buildFuture = true
 title = "Saasify"
-defaultContentLanguage = "en"
+
+# --- CONFIGURAZIONE LINGUA PRINCIPALE ---
+# L'italiano è la lingua di default. I file sono in content/it/
+defaultContentLanguage = "it"
 
 # Theme Config
 theme = "hugo-saasify-theme"
@@ -12,7 +15,7 @@ enableEmoji = true
 # Enable Git info for lastmod
 enableGitInfo = true
 
-# Enable taxonomies
+# --- TASSONOMIE (Categorie e Tag) ---
 [taxonomies]
   category = 'categories'
   tag = 'tags'
@@ -22,12 +25,28 @@ enableGitInfo = true
   pagerSize = 6
   path = "page"
 
+# --- GESTIONE MULTILINGUA ---
+# Per aggiungere una lingua: 1. Aggiungi il blocco [languages.xx] qui sotto. 2. Crea la cartella content/xx/
+[languages]
+  [languages.it]
+    languageCode = "it-it"
+    languageName = "Italiano"
+    title = "Saasify IT"
+    weight = 1
+    contentDir = "content/it" # Cartella per i file italiani
+
+  [languages.en]
+    languageCode = "en-us"
+    languageName = "English"
+    title = "Saasify EN"
+    weight = 2
+    contentDir = "content/en" # Cartella per i file inglesi
+
+# --- PARAMETRI GLOBALI DEL SITO ---
 [params]
   description = ""
   author = "Chaoming Li"
   logo = "/images/logo.svg"
-  # Google Analytics ID (e.g., "G-XXXXXXXXXX")
-  # googleAnalytics = "G-XXXXXXXXXX"
   
   # Global CTA Configuration
   [params.cta]
@@ -171,25 +190,6 @@ enableGitInfo = true
     endLevel = 3
     ordered = false
     startLevel = 2
-
-# Multilingual Configuration
-# Uncomment the sections below to enable multilingual support
-# See docs/CONFIGURATION.md for detailed instructions
-
-# [languages]
-#   [languages.en]
-#     languageCode = "en-us"
-#     languageName = "English"
-#     title = "Saasify"
-#     weight = 1
-#     contentDir = "content"
-#
-#   [languages.zh-cn]
-#     languageCode = "zh-cn"
-#     languageName = "简体中文"
-#     title = "Saasify"
-#     weight = 2
-#     contentDir = "content/zh-cn"
 
 # Navigation Menu
 [menu]

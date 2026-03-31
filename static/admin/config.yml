@@ -1,36 +1,92 @@
+# --- CONFIGURAZIONE BACKEND ---
+# Usiamo il backend 'github' ma con 'local_backend: true' per lo sviluppo locale
 backend:
   name: github
   repo: cialdecompatibili-netizen/papermod
   branch: main
   base_url: https://papermod-1rp.pages.dev
   auth_endpoint: api/auth
-media_folder: static/images/blog
-public_folder: /images/blog
+
+local_backend: true
+
+# --- CONFIGURAZIONE MULTILINGUA CMS ---
+# 'structure: multiple_folders' significa che ogni lingua ha la sua cartella (it, en)
+i18n:
+  structure: multiple_folders
+  locales: [it, en]
+  default_locale: it
+
+# --- GESTIONE MEDIA ---
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+# --- COLLEZIONI (Menu laterale Admin) ---
 collections:
+  # Gestione Logo, Titolo e Social
+  - name: settings
+    label: Impostazioni Sito
+    files:
+      - label: Generale & Social
+        name: general
+        file: content/it/_index.md
+        i18n: true
+        fields:
+          - {label: Titolo Sito, name: title, widget: string}
+          - {label: Descrizione SEO, name: description, widget: string}
+          - {label: Logo, name: logo, widget: image, required: false}
+          - label: Social Media
+            name: social
+            widget: object
+            fields:
+              - {label: LinkedIn, name: linkedin, widget: string, required: false}
+              - {label: Twitter, name: twitter, widget: string, required: false}
+              - {label: GitHub, name: github, widget: string, required: false}
+              - {label: Instagram, name: instagram, widget: string, required: false}
+  
+  # Gestione Articoli del Blog
   - name: blog
     label: Blog
-    folder: content/blog
+    folder: content/it/blog
+    i18n: true
     create: true
     delete: true
     fields:
-      - {label: Title, name: title, widget: string}
-      - {label: Date, name: date, widget: datetime}
-      - {label: Description, name: description, widget: string, required: false}
-      - {label: Author, name: author, widget: string, required: false, default: "Il tuo nome"}
-      - {label: Categories, name: categories, widget: list, required: false, default: ["Test"]}
-      - {label: Tags, name: tags, widget: list, required: false, default: ["test"]}
-      - {label: Featured Image, name: featured_image, widget: image, required: false, default: "/images/blog/blog-4.jpg"}
-      - {label: Body, name: body, widget: markdown}
+      - {label: Titolo, name: title, widget: string}
+      - {label: Data, name: date, widget: datetime}
+      - {label: Descrizione, name: description, widget: string, required: false}
+      - {label: Autore, name: author, widget: string, required: false}
+      - {label: Categorie, name: categories, widget: list, required: false}
+      - {label: Tags, name: tags, widget: list, required: false}
+      - {label: Immagine Copertina, name: featured_image, widget: image, required: false}
+      - {label: Contenuto, name: body, widget: markdown}
+  
+  # Gestione Categorie (Titoli e Descrizioni personalizzate)
+  - name: categories
+    label: Gestore Categorie
+    folder: content/it/categories
+    i18n: true
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}/_index"
+    fields:
+      - {label: Nome Categoria, name: title, widget: string}
+      - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
+      - {label: Immagine Categoria, name: image, widget: image, required: false}
+  
+  # Gestione Pagine Statiche (Simple, Pricing, etc.)
   - name: pages
     label: Pagine
-    folder: content
+    folder: content/it
+    i18n: true
     create: true
     delete: true
     extension: md
     format: frontmatter
     slug: "{{slug}}"
     fields:
-      - {label: Title, name: title, widget: string}
+      - {label: Titolo, name: title, widget: string}
       - {label: Layout, name: layout, widget: select, options: ["simple", "feature", "pricing", "company", "career"], default: "simple", required: false}
-      - {label: Description, name: description, widget: string, required: false}
-      - {label: Body, name: body, widget: markdown}
+      - {label: Descrizione, name: description, widget: string, required: false}
+      - {label: Contenuto, name: body, widget: markdown}

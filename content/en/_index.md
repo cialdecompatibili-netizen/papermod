@@ -28,12 +28,12 @@ testimonials:
     avatar: /images/testimonial-1.svg
     quote: This theme made it easy to create a professional SaaS website. The build
       times are incredibly fast, and the code is clean and maintainable.
-description: descrizion e
+description: "Welcome to our English homepage."
 ---
 
 {{< hero 
-    headline="Cacca Build Your SaaS Website"
-    sub_headline="Create stunning ita , responsive websites that load instantly. Built with Hugo and TailwindCSS for maximum performance and flexibility."
+    headline="Build Your SaaS Website Faster"
+    sub_headline="Create stunning, responsive websites that load instantly. Built with Hugo and TailwindCSS for maximum performance and flexibility."
     primary_button_text="Get Started Free"
     primary_button_url="#"
     secondary_button_text="View Demo"
