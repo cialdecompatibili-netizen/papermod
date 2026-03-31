@@ -125,8 +125,33 @@ collections:
   # Gestione Pagine (WordPress Style)
   - name: pages
     label: Pagine
+    folder: content
+    i18n: true
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - {label: Titolo, name: title, widget: string}
+      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
+      - {label: Layout, name: layout, widget: select, options: ["simple", "feature", "pricing", "company", "career"], default: "simple", required: false}
+      - {label: Descrizione, name: description, widget: string, required: false}
+      - label: SEO & Social
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Titolo SEO, name: seo_title, widget: string, required: false}
+          - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
+          - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
+      - {label: Contenuto, name: body, widget: markdown}
+
+  # Home Page Speciale
+  - name: home_page_special
+    label: "Home Page (Predefinita)"
     files:
-      - label: "Home Page (Predefinita)"
+      - label: "Home Page (Contenuti Speciali)"
         name: "home"
         file: "content/_index.md"
         i18n: true
@@ -161,67 +186,6 @@ collections:
               - {label: Avatar, name: avatar, widget: image}
               - {label: Citazione, name: quote, widget: text}
           - {label: Contenuto Pagina (Markdown/Shortcodes), name: body, widget: markdown}
-      
-      - label: "Chi Siamo"
-        name: "company_page"
-        file: "content/company.md"
-        i18n: true
-        fields:
-          - {label: Titolo, name: title, widget: string}
-          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
-          - {label: Descrizione, name: description, widget: string, required: false}
-          - label: SEO & Social
-            name: seo
-            widget: object
-            collapsed: true
-            fields:
-              - {label: Titolo SEO, name: seo_title, widget: string, required: false}
-              - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
-              - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
-          - {label: Contenuto, name: body, widget: markdown}
-          
-      - label: "Prezzi"
-        name: "pricing_page"
-        file: "content/pricing.md"
-        i18n: true
-        fields:
-          - {label: Titolo, name: title, widget: string}
-          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
-          - {label: Descrizione, name: description, widget: string, required: false}
-          - label: SEO & Social
-            name: seo
-            widget: object
-            collapsed: true
-            fields:
-              - {label: Titolo SEO, name: seo_title, widget: string, required: false}
-              - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
-              - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
-          - {label: Contenuto, name: body, widget: markdown}
-
-      - label: "Lavora con noi"
-        name: "careers_page"
-        file: "content/careers.md"
-        i18n: true
-        fields:
-          - {label: Titolo, name: title, widget: string}
-          - {label: Descrizione, name: description, widget: string, required: false}
-          - {label: Contenuto, name: body, widget: markdown}
-
-      - label: "Privacy Policy"
-        name: "privacy_page"
-        file: "content/privacy.md"
-        i18n: true
-        fields:
-          - {label: Titolo, name: title, widget: string}
-          - {label: Contenuto, name: body, widget: markdown}
-
-      - label: "Licenza"
-        name: "license_page"
-        file: "content/license.md"
-        i18n: true
-        fields:
-          - {label: Titolo, name: title, widget: string}
-          - {label: Contenuto, name: body, widget: markdown}
 
   # Gestione Menu (Style PrestaShop/WordPress)
   - name: "menus"
