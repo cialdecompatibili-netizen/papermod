@@ -23,6 +23,9 @@ main:
         url: /company/
       - name: Lavora con noi
         url: /careers/
+  - name: Home
+    url: https://papermod-1rp.pages.dev/
+    weight: 1
 footer_column_1:
   - name: Prestazioni
     url: /features/performance/
