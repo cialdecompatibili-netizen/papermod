@@ -33,14 +33,14 @@ enableGitInfo = true
     languageName = "Italiano"
     title = "Saasify IT"
     weight = 1
-    contentDir = "content/it" # Cartella per i file italiani
+    contentDir = "content"
 
   [languages.en]
     languageCode = "en-us"
     languageName = "English"
     title = "Saasify EN"
     weight = 2
-    contentDir = "content/en" # Cartella per i file inglesi
+    contentDir = "content"
 
 # --- PARAMETRI GLOBALI DEL SITO ---
 [params]

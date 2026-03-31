@@ -10,9 +10,9 @@ backend:
 local_backend: true
 
 # --- CONFIGURAZIONE MULTILINGUA CMS ---
-# 'structure: multiple_folders' significa che ogni lingua ha la sua cartella (it, en)
+# 'structure: i18n_2_files' significa che ogni lingua ha il suo file (post.md, post.en.md)
 i18n:
-  structure: multiple_folders
+  structure: i18n_2_files
   locales: [it, en]
   default_locale: it
 
@@ -28,7 +28,7 @@ collections:
     files:
       - label: Generale & Social
         name: general
-        file: content/it/_index.md
+        file: content/_index.md
         i18n: true
         fields:
           - {label: Titolo Sito, name: title, widget: string}
@@ -46,7 +46,7 @@ collections:
   # Gestione Articoli del Blog
   - name: blog
     label: Blog
-    folder: content/it/blog
+    folder: content/blog
     i18n: true
     create: true
     delete: true
@@ -55,21 +55,32 @@ collections:
       - {label: Data, name: date, widget: datetime}
       - {label: Descrizione, name: description, widget: string, required: false}
       - {label: Autore, name: author, widget: string, required: false}
-      - {label: Categorie, name: categories, widget: list, required: false}
-      - {label: Tags, name: tags, widget: list, required: false}
-      - {label: Immagine Copertina, name: featured_image, widget: image, required: false}
+      - label: Categorie
+        name: categories
+        widget: relation
+        collection: categories
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        multiple: true
+        required: true
+        default: ["Senza Categoria"]
+        i18n: true
+      - {label: Tags, name: tags, widget: list, required: false, i18n: true}
+      - {label: Immagine Copertina, name: featured_image, widget: image, required: false, default: "/images/blog/blog-1.jpg", i18n: duplicate}
       - {label: Contenuto, name: body, widget: markdown}
   
   # Gestione Categorie (Titoli e Descrizioni personalizzate)
   - name: categories
     label: Gestore Categorie
-    folder: content/it/categories
+    folder: content/categories
     i18n: true
     create: true
     delete: true
     extension: md
     format: frontmatter
     slug: "{{slug}}/_index"
+    identifier_field: title
     fields:
       - {label: Nome Categoria, name: title, widget: string}
       - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
@@ -78,7 +89,7 @@ collections:
   # Gestione Pagine Statiche (Simple, Pricing, etc.)
   - name: pages
     label: Pagine
-    folder: content/it
+    folder: content
     i18n: true
     create: true
     delete: true

@@ -18,23 +18,20 @@ Apri il file `hugo.toml` e aggiungi questo blocco sotto `[languages]`:
   languageName = "Français"
   title = "Saasify FR"
   weight = 3
-  contentDir = "content/fr"
+  contentDir = "content" # STESSA CARTELLA content
 ```
 
-### 2. Creazione Cartelle
-Crea la cartella per i nuovi file:
-- `content/fr/`
-- `content/fr/blog/`
-- `content/fr/categories/`
-
-### 3. Configurazione Admin (CMS)
+### 2. Configurazione Admin (CMS)
 Apri `static/admin/config.yml` e aggiungi `fr` alla lista delle lingue:
 ```yaml
 i18n:
-  structure: multiple_folders
+  structure: i18n_2_files # Gestione stile PrestaShop (post.md, post.fr.md)
   locales: [it, en, fr] # Aggiungi 'fr' qui
   default_locale: it
 ```
+
+### 3. Come tradurre
+Non serve creare cartelle manuali! Dall'Admin, seleziona la lingua e salva. Verrà creato automaticamente un file con l'estensione della lingua (es. `mio-post.fr.md`) nella stessa cartella dell'originale.
 
 ---
 
