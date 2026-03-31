@@ -19,25 +19,28 @@
 
                 <!-- Navigation -->
                 <div class="hidden xl:flex items-center {{ with $headerConfig.menu.spacing }}{{ . }}{{ else }}space-x-8{{ end }}">
-                    {{ range .Site.Menus.main }}
-                        {{ if .Params.has_submenu }}
-                        <div class="relative group">
-                            <button class="flex items-center {{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">
-                                {{ .Name }}
-                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div class="absolute left-0 mt-2 {{ $dropdownConfig.width | default "w-72" }} opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
-                                <div class="{{ $dropdownConfig.container_padding | default "py-6" }} {{ $dropdownConfig.background | default "bg-white" }} {{ $dropdownConfig.border | default "border border-gray-100" }} {{ $dropdownConfig.shadow | default "shadow-xl" }} {{ $dropdownConfig.radius | default "rounded-lg" }}">
-                                    {{ range .Params.submenu }}
-                                    <a href="{{ .url }}" class="block {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}">{{ .name }}</a>
-                                    {{ end }}
+                    {{ $menus := index hugo.Data.menus .Site.Language.Lang }}
+                    {{ if and $menus $menus.main }}
+                        {{ range $menus.main }}
+                            {{ if .submenu }}
+                            <div class="relative group">
+                                <button class="flex items-center {{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">
+                                    {{ .name }}
+                                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="absolute left-0 mt-2 {{ $dropdownConfig.width | default "w-72" }} opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                                    <div class="{{ $dropdownConfig.container_padding | default "py-6" }} {{ $dropdownConfig.background | default "bg-white" }} {{ $dropdownConfig.border | default "border border-gray-100" }} {{ $dropdownConfig.shadow | default "shadow-xl" }} {{ $dropdownConfig.radius | default "rounded-lg" }}">
+                                        {{ range .submenu }}
+                                        <a href="{{ .url }}" class="block {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}">{{ .name }}</a>
+                                        {{ end }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        {{ else }}
-                        <a href="{{ .URL }}" class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .Name }}</a>
+                            {{ else }}
+                            <a href="{{ .url }}" class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .name }}</a>
+                            {{ end }}
                         {{ end }}
                     {{ end }}
 
@@ -76,23 +79,26 @@
         <!-- Mobile Menu -->
         <div class="nav-content xl:hidden w-full fixed left-0 right-0 top-20 bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div class="w-full px-6 py-4">
-                {{ range .Site.Menus.main }}
-                    {{ if .Params.has_submenu }}
-                    <div class="py-2">
-                        <button class="flex items-center justify-between w-full text-xl text-gray-900 font-bold py-2 mobile-submenu-toggle" aria-expanded="false">
-                            {{ .Name }}
-                            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="pl-4 hidden mobile-submenu-content">
-                            {{ range .Params.submenu }}
-                            <a href="{{ .url }}" class="block text-gray-700 hover:text-primary-600 py-2">{{ .name }}</a>
-                            {{ end }}
+                {{ $menus := index hugo.Data.menus .Site.Language.Lang }}
+                {{ if and $menus $menus.main }}
+                    {{ range $menus.main }}
+                        {{ if .submenu }}
+                        <div class="py-2">
+                            <button class="flex items-center justify-between w-full text-xl text-gray-900 font-bold py-2 mobile-submenu-toggle" aria-expanded="false">
+                                {{ .name }}
+                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="pl-4 hidden mobile-submenu-content">
+                                {{ range .submenu }}
+                                <a href="{{ .url }}" class="block text-gray-700 hover:text-primary-600 py-2">{{ .name }}</a>
+                                {{ end }}
+                            </div>
                         </div>
-                    </div>
-                    {{ else }}
-                    <a href="{{ .URL }}" class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .Name }}</a>
+                        {{ else }}
+                        <a href="{{ .url }}" class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .name }}</a>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
 
