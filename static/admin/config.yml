@@ -10,9 +10,9 @@ backend:
 local_backend: true
 
 # --- CONFIGURAZIONE MULTILINGUA CMS ---
-# 'structure: i18n_2_files' significa che ogni lingua ha il suo file (post.md, post.en.md)
+# 'structure: multiple_files' significa che ogni lingua ha il suo file (post.md, post.en.md)
 i18n:
-  structure: i18n_2_files
+  structure: multiple_files
   locales: [it, en]
   default_locale: it
 

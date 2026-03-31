@@ -25,7 +25,7 @@ Apri il file `hugo.toml` e aggiungi questo blocco sotto `[languages]`:
 Apri `static/admin/config.yml` e aggiungi `fr` alla lista delle lingue:
 ```yaml
 i18n:
-  structure: i18n_2_files # Gestione stile PrestaShop (post.md, post.fr.md)
+  structure: multiple_files # Gestione stile PrestaShop (post.md, post.fr.md)
   locales: [it, en, fr] # Aggiungi 'fr' qui
   default_locale: it
 ```
