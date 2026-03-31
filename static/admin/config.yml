@@ -79,8 +79,6 @@ collections:
     i18n: true
     create: true
     delete: true
-    extension: md
-    format: frontmatter
     slug: "{{slug}}"
     fields:
       - {label: Titolo, name: title, widget: string, i18n: true}
@@ -109,11 +107,7 @@ collections:
     i18n: true
     create: true
     delete: true
-    extension: md
-    format: frontmatter
     slug: "{{slug}}"
-    identifier_field: title
-    summary: "{{title}}"
     fields:
       - {label: Nome Categoria, name: title, widget: string, i18n: true}
       - {label: Descrizione Categoria, name: description, widget: markdown, required: false, i18n: true}
