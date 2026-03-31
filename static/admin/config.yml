@@ -104,14 +104,13 @@ collections:
   - name: categories
     label: Gestore Categorie
     folder: content/categories
-    i18n: true
     create: true
     delete: true
     slug: "{{slug}}"
     fields:
-      - {label: Nome Categoria, name: title, widget: string, i18n: true}
-      - {label: Descrizione Categoria, name: description, widget: markdown, required: false, i18n: true}
-      - {label: Immagine Categoria, name: image, widget: image, required: false, i18n: duplicate}
+      - {label: Nome Categoria, name: title, widget: string}
+      - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
+      - {label: Immagine Categoria, name: image, widget: image, required: false}
   
   # Gestione Pagine (WordPress Style)
   - name: pages
