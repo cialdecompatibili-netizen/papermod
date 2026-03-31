@@ -12,9 +12,6 @@ main:
   - name: Prezzi
     url: /pricing
     weight: 2
-  - name: Blog
-    url: /blog
-    weight: 3
   - name: Azienda
     weight: 4
     has_submenu: true
@@ -23,6 +20,9 @@ main:
         url: /company/
       - name: Lavora con noi
         url: /careers/
+  - name: Blog
+    url: /blog
+    weight: 3
 footer_column_1:
   - name: Prestazioni
     url: /features/performance/
