@@ -201,6 +201,8 @@ collections:
             name: "main"
             widget: "list"
             collapsed: true
+            label_singular: "Voce"
+            summary: "{{name}} → {{url}}"
             fields:
               - {label: "Nome", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
@@ -210,6 +212,8 @@ collections:
                 widget: "list"
                 required: false
                 collapsed: true
+                label_singular: "Voce"
+                summary: "{{name}} → {{url}}"
                 fields:
                   - {label: "Nome", name: "name", widget: "string"}
                   - {label: "URL", name: "url", widget: "string", required: false}
@@ -218,6 +222,8 @@ collections:
             name: "footer_column_1"
             widget: "list"
             collapsed: true
+            label_singular: "Voce"
+            summary: "{{name}} → {{url}}"
             fields:
               - {label: "Nome", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
@@ -226,6 +232,8 @@ collections:
             name: "footer_column_2"
             widget: "list"
             collapsed: true
+            label_singular: "Voce"
+            summary: "{{name}} → {{url}}"
             fields:
               - {label: "Nome", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
@@ -234,6 +242,8 @@ collections:
             name: "footer_column_3"
             widget: "list"
             collapsed: true
+            label_singular: "Voce"
+            summary: "{{name}} → {{url}}"
             fields:
               - {label: "Nome", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
