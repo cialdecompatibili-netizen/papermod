@@ -1,11 +1,11 @@
 ---
-title: "Privacy Policy"
-layout: "simple"
+title: Privacy Policy
+layout: simple
 ---
 
 ## Introduction
 
-At Saasify, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our service.
+ccAt Saasify, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our service.
 
 ---
 
