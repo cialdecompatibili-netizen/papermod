@@ -132,8 +132,6 @@ collections:
     extension: md
     format: frontmatter
     slug: "{{slug}}"
-    # Evitiamo di mostrare la home page qui per non creare duplicati
-    filter: {field: "title", match: "^(?!Saasify).*"} 
     fields:
       - {label: Titolo, name: title, widget: string}
       - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
