@@ -81,7 +81,7 @@ collections:
     delete: true
     fields:
       - {label: Titolo, name: title, widget: string, i18n: true}
-      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate, hint: "Se attivo, il post sarà una bozza e non apparirà sul sito"}
+      - {label: "Bozza (Draft)", name: draft, widget: boolean, default: true, i18n: duplicate, hint: "Se attivo, il post NON apparirà sul sito pubblico"}
       - {label: Data, name: date, widget: datetime, i18n: duplicate}
       - {label: Descrizione, name: description, widget: string, required: false, i18n: true, hint: "Breve riassunto per la lista dei post e fallback SEO"}
       - {label: Autore, name: author, widget: string, required: false, i18n: true}
@@ -118,7 +118,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: Nome Categoria, name: title, widget: string}
-      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
+      - {label: "Bozza (Draft)", name: draft, widget: boolean, default: true, i18n: duplicate}
       - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
       - {label: Immagine Categoria, name: image, widget: image, required: false}
   
@@ -134,7 +134,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: Titolo, name: title, widget: string}
-      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
+      - {label: "Bozza (Draft)", name: draft, widget: boolean, default: true, i18n: duplicate}
       - {label: Layout, name: layout, widget: select, options: ["simple", "feature", "pricing", "company", "career"], default: "simple", required: false}
       - {label: Descrizione, name: description, widget: string, required: false}
       - label: SEO & Social
@@ -157,7 +157,7 @@ collections:
         i18n: true
         fields:
           - {label: Titolo Pagina, name: title, widget: string}
-          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
+          - {label: "Bozza (Draft)", name: draft, widget: boolean, default: true, i18n: duplicate}
           - {label: Descrizione SEO, name: description, widget: string, hint: "Fallback SEO se il blocco sotto è vuoto"}
           - label: SEO & Social Avanzato
             name: seo
