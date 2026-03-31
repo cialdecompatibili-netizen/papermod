@@ -81,9 +81,19 @@ collections:
     delete: true
     fields:
       - {label: Titolo, name: title, widget: string, i18n: true}
+      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate, hint: "Se attivo, il post sarà una bozza e non apparirà sul sito"}
       - {label: Data, name: date, widget: datetime, i18n: duplicate}
-      - {label: Descrizione, name: description, widget: string, required: false, i18n: true}
+      - {label: Descrizione, name: description, widget: string, required: false, i18n: true, hint: "Breve riassunto per la lista dei post e fallback SEO"}
       - {label: Autore, name: author, widget: string, required: false, i18n: true}
+      - label: SEO & Social
+        name: seo
+        widget: object
+        collapsed: true
+        i18n: true
+        fields:
+          - {label: Titolo SEO, name: seo_title, widget: string, required: false, hint: "Se vuoto, usa il titolo del post"}
+          - {label: Descrizione SEO, name: seo_description, widget: text, required: false, hint: "Se vuoto, usa la descrizione sopra"}
+          - {label: Immagine Social (OG), name: og_image, widget: image, required: false, hint: "Immagine specifica per la condivisione su Facebook/LinkedIn"}
       - label: Categorie
         name: categories
         widget: relation
@@ -108,6 +118,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: Nome Categoria, name: title, widget: string}
+      - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
       - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
       - {label: Immagine Categoria, name: image, widget: image, required: false}
   
@@ -121,7 +132,16 @@ collections:
         i18n: true
         fields:
           - {label: Titolo Pagina, name: title, widget: string}
-          - {label: Descrizione SEO, name: description, widget: string}
+          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
+          - {label: Descrizione SEO, name: description, widget: string, hint: "Fallback SEO se il blocco sotto è vuoto"}
+          - label: SEO & Social Avanzato
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Titolo SEO, name: seo_title, widget: string, required: false}
+              - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
+              - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
           - label: Loghi Clienti
             name: client_logos
             widget: list
@@ -148,7 +168,16 @@ collections:
         i18n: true
         fields:
           - {label: Titolo, name: title, widget: string}
+          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
           - {label: Descrizione, name: description, widget: string, required: false}
+          - label: SEO & Social
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Titolo SEO, name: seo_title, widget: string, required: false}
+              - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
+              - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
           - {label: Contenuto, name: body, widget: markdown}
           
       - label: "Prezzi"
@@ -157,7 +186,16 @@ collections:
         i18n: true
         fields:
           - {label: Titolo, name: title, widget: string}
+          - {label: Pubblicato, name: draft, widget: boolean, default: false, i18n: duplicate}
           - {label: Descrizione, name: description, widget: string, required: false}
+          - label: SEO & Social
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Titolo SEO, name: seo_title, widget: string, required: false}
+              - {label: Descrizione SEO, name: seo_description, widget: text, required: false}
+              - {label: Immagine Social (OG), name: og_image, widget: image, required: false}
           - {label: Contenuto, name: body, widget: markdown}
 
       - label: "Lavora con noi"
