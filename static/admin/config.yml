@@ -79,7 +79,6 @@ collections:
     i18n: true
     create: true
     delete: true
-    slug: "{{slug}}"
     fields:
       - {label: Titolo, name: title, widget: string, i18n: true}
       - {label: Data, name: date, widget: datetime, i18n: duplicate}
