@@ -26,6 +26,35 @@ collections:
   - name: settings
     label: Impostazioni Sito
     files:
+      - label: "Impostazioni Lettura (WordPress Style)"
+        name: "reading"
+        file: "data/settings.yml"
+        i18n: true
+        fields:
+          - label: "Pagina Home"
+            name: "home_page"
+            widget: "select"
+            options:
+              - { label: "Home Page (Predefinita)", value: "/" }
+              - { label: "Chi Siamo", value: "/company" }
+              - { label: "Prezzi", value: "/pricing" }
+              - { label: "Lavora con noi", value: "/careers" }
+              - { label: "Privacy Policy", value: "/privacy" }
+              - { label: "Licenza", value: "/license" }
+            default: "/"
+            required: false
+            hint: "Seleziona la pagina da usare come Home Page"
+          - label: "Pagina Blog"
+            name: "blog_page"
+            widget: "select"
+            options:
+              - { label: "Blog (Predefinito)", value: "/blog" }
+              - { label: "Chi Siamo", value: "/company" }
+              - { label: "Prezzi", value: "/pricing" }
+              - { label: "Lavora con noi", value: "/careers" }
+            default: "/blog"
+            required: false
+            hint: "Seleziona la pagina che mostrerà l'elenco degli articoli"
       - label: Generale & Social
         name: general
         file: content/_index.md
@@ -42,7 +71,7 @@ collections:
               - {label: Twitter, name: twitter, widget: string, required: false}
               - {label: GitHub, name: github, widget: string, required: false}
               - {label: Instagram, name: instagram, widget: string, required: false}
-  
+
   # Gestione Articoli del Blog
   - name: blog
     label: Blog
@@ -79,25 +108,181 @@ collections:
     delete: true
     extension: md
     format: frontmatter
-    slug: "{{slug}}/_index"
+    slug: "{{slug}}"
     identifier_field: title
+    summary: "{{title}}"
     fields:
       - {label: Nome Categoria, name: title, widget: string}
       - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
       - {label: Immagine Categoria, name: image, widget: image, required: false}
   
-  # Gestione Pagine Statiche (Simple, Pricing, etc.)
+  # Gestione Pagine (WordPress Style)
   - name: pages
     label: Pagine
-    folder: content
-    i18n: true
-    create: true
-    delete: true
-    extension: md
-    format: frontmatter
-    slug: "{{slug}}"
-    fields:
-      - {label: Titolo, name: title, widget: string}
-      - {label: Layout, name: layout, widget: select, options: ["simple", "feature", "pricing", "company", "career"], default: "simple", required: false}
-      - {label: Descrizione, name: description, widget: string, required: false}
-      - {label: Contenuto, name: body, widget: markdown}
+    files:
+      - label: "Home Page (Predefinita)"
+        name: "home"
+        file: "content/_index.md"
+        i18n: true
+        fields:
+          - {label: Titolo Pagina, name: title, widget: string}
+          - {label: Descrizione SEO, name: description, widget: string}
+          - label: Loghi Clienti
+            name: client_logos
+            widget: list
+            collapsed: true
+            required: false
+            fields:
+              - {label: Nome, name: name, widget: string}
+              - {label: Logo, name: logo, widget: image}
+          - label: Testimonianze
+            name: testimonials
+            widget: list
+            collapsed: true
+            required: false
+            fields:
+              - {label: Nome, name: name, widget: string}
+              - {label: Ruolo, name: title, widget: string}
+              - {label: Avatar, name: avatar, widget: image}
+              - {label: Citazione, name: quote, widget: text}
+          - {label: Contenuto Pagina (Markdown/Shortcodes), name: body, widget: markdown}
+      
+      - label: "Chi Siamo"
+        name: "company_page"
+        file: "content/company.md"
+        i18n: true
+        fields:
+          - {label: Titolo, name: title, widget: string}
+          - {label: Descrizione, name: description, widget: string, required: false}
+          - {label: Contenuto, name: body, widget: markdown}
+          
+      - label: "Prezzi"
+        name: "pricing_page"
+        file: "content/pricing.md"
+        i18n: true
+        fields:
+          - {label: Titolo, name: title, widget: string}
+          - {label: Descrizione, name: description, widget: string, required: false}
+          - {label: Contenuto, name: body, widget: markdown}
+
+      - label: "Lavora con noi"
+        name: "careers_page"
+        file: "content/careers.md"
+        i18n: true
+        fields:
+          - {label: Titolo, name: title, widget: string}
+          - {label: Descrizione, name: description, widget: string, required: false}
+          - {label: Contenuto, name: body, widget: markdown}
+
+      - label: "Privacy Policy"
+        name: "privacy_page"
+        file: "content/privacy.md"
+        i18n: true
+        fields:
+          - {label: Titolo, name: title, widget: string}
+          - {label: Contenuto, name: body, widget: markdown}
+
+      - label: "Licenza"
+        name: "license_page"
+        file: "content/license.md"
+        i18n: true
+        fields:
+          - {label: Titolo, name: title, widget: string}
+          - {label: Contenuto, name: body, widget: markdown}
+
+  # Gestione Menu (Style PrestaShop/WordPress)
+  - name: "menus"
+    label: "Gestione Menu"
+    delete: false
+    create: false
+    files:
+      - label: "Menu Italiano"
+        name: "it"
+        file: "data/menus/it.yml"
+        fields:
+          - label: "Menu Principale (Header)"
+            name: "main"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Nome", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Ordine", name: "weight", widget: "number", required: false}
+              - label: "Sottomenu"
+                name: "submenu"
+                widget: "list"
+                required: false
+                collapsed: true
+                fields:
+                  - {label: "Nome", name: "name", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", required: false}
+                  - {label: "Ordine", name: "weight", widget: "number", required: false}
+          - label: "Footer Colonna 1"
+            name: "footer_column_1"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Nome", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Ordine", name: "weight", widget: "number", required: false}
+          - label: "Footer Colonna 2"
+            name: "footer_column_2"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Nome", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Ordine", name: "weight", widget: "number", required: false}
+          - label: "Footer Colonna 3"
+            name: "footer_column_3"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Nome", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Ordine", name: "weight", widget: "number", required: false}
+      - label: "Menu Inglese"
+        name: "en"
+        file: "data/menus/en.yml"
+        fields:
+          - label: "Main Menu (Header)"
+            name: "main"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Weight", name: "weight", widget: "number", required: false}
+              - label: "Submenu"
+                name: "submenu"
+                widget: "list"
+                required: false
+                collapsed: true
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", required: false}
+                  - {label: "Weight", name: "weight", widget: "number", required: false}
+          - label: "Footer Column 1"
+            name: "footer_column_1"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Weight", name: "weight", widget: "number", required: false}
+          - label: "Footer Column 2"
+            name: "footer_column_2"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Weight", name: "weight", widget: "number", required: false}
+          - label: "Footer Column 3"
+            name: "footer_column_3"
+            widget: "list"
+            collapsed: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Weight", name: "weight", widget: "number", required: false}

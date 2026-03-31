@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ $settings := index site.Data.settings site.Language.Lang }}
+  {{ $content := .Content }}
+  {{ if and $settings $settings.home_page (ne $settings.home_page "/") }}
+    {{ with site.GetPage $settings.home_page }}
+      {{ $content = .Content }}
+    {{ end }}
+  {{ end }}
+  {{ $content }}
+{{ end }}

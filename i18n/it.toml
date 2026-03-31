@@ -1,0 +1,115 @@
+# Traduzioni in italiano
+[readMore]
+other = "Leggi di più"
+
+[readTime]
+other = "min di lettura"
+
+[published]
+other = "Pubblicato"
+
+[updated]
+other = "Aggiornato"
+
+[by]
+other = "di"
+
+[shareOn]
+other = "Condividi su"
+
+[relatedPosts]
+other = "Articoli Correlati"
+
+[categories]
+other = "Categorie"
+
+[tags]
+other = "Tag"
+
+[allPosts]
+other = "Tutti gli Articoli"
+
+[search]
+other = "Cerca"
+
+[searchPlaceholder]
+other = "Cerca articoli..."
+
+[noResults]
+other = "Nessun risultato trovato"
+
+[backToHome]
+other = "Torna alla Home"
+
+[404Title]
+other = "Pagina Non Trovata"
+
+[404Message]
+other = "La pagina che stai cercando non esiste o è stata spostata."
+
+# Navigation
+[home]
+other = "Home"
+
+[about]
+other = "Chi Siamo"
+
+[contact]
+other = "Contatti"
+
+# Blog
+[latestPosts]
+other = "Ultimi Post"
+
+[recentArticles]
+other = "Articoli Recenti"
+
+[popularTags]
+other = "Tag Popolari"
+
+[subscribeNewsletter]
+other = "Iscriviti alla Newsletter"
+
+[subscribeDescription]
+other = "Ricevi gli ultimi post direttamente nella tua casella di posta"
+
+[emailPlaceholder]
+other = "Inserisci la tua email"
+
+[subscribe]
+other = "Iscriviti"
+
+[subscribeDisclaimer]
+other = "Rispettiamo la tua privacy. Disiscriviti in qualsiasi momento."
+
+# Footer
+[copyright]
+other = "© {{ .Year }} {{ .SiteName }}. Tutti i diritti riservati."
+
+[builtWith]
+other = "Costruito con"
+
+[and]
+other = "e"
+
+# Language switcher
+[language]
+other = "Lingua"
+
+[signIn]
+other = "Accedi"
+
+[getStarted]
+other = "Inizia ora"
+
+[previous]
+other = "Precedente"
+
+[next]
+other = "Successivo"
+
+[previousPost]
+other = "Articolo Precedente"
+
+[nextPost]
+other = "Articolo Successivo"

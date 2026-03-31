@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Saasify EN
 client_logos:
   - name: Customer 1
     logo: /images/logos/customer-1.png

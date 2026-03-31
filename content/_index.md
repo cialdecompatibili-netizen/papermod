@@ -1,5 +1,6 @@
 ---
-title: Home
+title: Saasify ITCF
+description: Benvenuti nella nostra homepage italiana.
 client_logos:
   - name: Cliente 1
     logo: /images/logos/customer-1.png
@@ -15,20 +16,24 @@ testimonials:
   - name: John Smith
     title: CTO presso TechStartup
     avatar: /images/testimonial-1.svg
-    quote: Abbiamo costruito il nostro sito SaaS in tempo record. Le prestazioni sono incredibili e i nostri utenti amano il design moderno e pulito.
+    quote: Abbiamo costruito il nostro sito SaaS in tempo record. Le prestazioni
+      sono incredibili e i nostri utenti amano il design moderno e pulito.
   - name: Sarah Johnson
     title: Fondatrice di WebFlow
     avatar: /images/testimonial-1.svg
-    quote: La combinazione di Hugo e TailwindCSS offre prestazioni fulminee. Il nostro sito si carica istantaneamente, migliorando significativamente i tassi di conversione.
+    quote: La combinazione di Hugo e TailwindCSS offre prestazioni fulminee. Il
+      nostro sito si carica istantaneamente, migliorando significativamente i
+      tassi di conversione.
   - name: Michael Chen
     title: Lead Developer presso CloudTech
     avatar: /images/testimonial-1.svg
-    quote: Questo tema ha reso facile la creazione di un sito SaaS professionale. I tempi di compilazione sono incredibilmente veloci e il codice è pulito e manutenibile.
-description: "Benvenuti nella nostra homepage italiana."
+    quote: Questo tema ha reso facile la creazione di un sito SaaS professionale. I
+      tempi di compilazione sono incredibilmente veloci e il codice è pulito e
+      manutenibile.
 ---
 
 {{< hero 
-    headline="Costruisci il tuo sito SaaS più velocemente"
+    headline="Cacca Costruisci il tuo sito SaaS più velocemente"
     sub_headline="Crea siti web stupendi e reattivi che si caricano istantaneamente. Realizzato con Hugo e TailwindCSS per massime prestazioni e flessibilità."
     primary_button_text="Inizia Gratuitamente"
     primary_button_url="#"

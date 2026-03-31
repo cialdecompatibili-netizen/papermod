@@ -1,0 +1,52 @@
+main:
+  - name: Funzionalità
+    weight: 1
+    has_submenu: true
+    submenu:
+      - name: Prestazioni
+        url: /features/performance/
+      - name: Design System
+        url: /features/design-system/
+      - name: Esperienza Sviluppatore
+        url: /features/developer-experience/
+  - name: Prezzi
+    url: /pricing
+    weight: 2
+  - name: Blog
+    url: /blog
+    weight: 3
+  - name: Azienda
+    weight: 4
+    has_submenu: true
+    submenu:
+      - name: Chi Siamo
+        url: /company/
+      - name: Lavora con noi
+        url: /careers/
+footer_column_1:
+  - name: Prestazioni
+    url: /features/performance/
+    weight: 1
+  - name: Design System
+    url: /features/design-system/
+    weight: 2
+  - name: Esperienza Sviluppatore
+    url: /features/developer-experience/
+    weight: 3
+footer_column_2:
+  - name: Blog
+    url: /blog
+    weight: 1
+  - name: Chi Siamo
+    url: /company
+    weight: 2
+  - name: Lavora con noi
+    url: /careers
+    weight: 3
+footer_column_3:
+  - name: Licenza
+    url: /license
+    weight: 1
+  - name: Privacy Policy
+    url: /privacy
+    weight: 2
