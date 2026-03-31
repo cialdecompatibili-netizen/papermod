@@ -7,41 +7,37 @@
             <nav class="flex items-center justify-between h-20">
                 <!-- Logo and Title -->
                 <a href="{{ "/" | relLangURL }}" class="flex items-center space-x-4">
-                    {{ $logo := .Site.Home.Params.logo | default .Site.Params.header.logo.src }}
-                    {{ if $logo }}
-                        <img src="{{ $logo | relURL }}" alt="{{ .Site.Home.Title | default .Site.Title }}" class="{{ with .Site.Params.header.logo.class }}{{ . }}{{ else }}h-12{{ end }}">
+                    {{ with $headerConfig.logo }}
+                        <img src="{{ .src | relURL }}" alt="{{ $.Site.Title }}" class="{{ with .class }}{{ . }}{{ else }}h-12{{ end }}">
                     {{ else }}
-                        <span class="text-3xl font-bold text-gray-900">{{ .Site.Home.Title | default .Site.Title }}</span>
+                        <span class="text-3xl font-bold text-gray-900">{{ .Site.Title }}</span>
                     {{ end }}
-                    {{ if (or .Site.Home.Title .Site.Title) }}
-                        <span class="text-3xl font-semibold text-gray-800">{{ .Site.Home.Title | default .Site.Title }}</span>
+                    {{ if .Site.Title }}
+                        <span class="text-3xl font-semibold text-gray-800">{{ .Site.Title }}</span>
                     {{ end }}
                 </a>
 
                 <!-- Navigation -->
                 <div class="hidden xl:flex items-center {{ with $headerConfig.menu.spacing }}{{ . }}{{ else }}space-x-8{{ end }}">
-                    {{ $menus := index .Site.Data.menus .Site.Language.Lang }}
-                    {{ if and $menus $menus.main }}
-                        {{ range $menus.main }}
-                            {{ if .submenu }}
-                            <div class="relative group">
-                                <button class="flex items-center {{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">
-                                    {{ .name }}
-                                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="absolute left-0 mt-2 {{ $dropdownConfig.width | default "w-72" }} opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
-                                    <div class="{{ $dropdownConfig.container_padding | default "py-6" }} {{ $dropdownConfig.background | default "bg-white" }} {{ $dropdownConfig.border | default "border border-gray-100" }} {{ $dropdownConfig.shadow | default "shadow-xl" }} {{ $dropdownConfig.radius | default "rounded-lg" }}">
-                                        {{ range .submenu }}
-                                        <a href="{{ .url }}" class="block {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}">{{ .name }}</a>
-                                        {{ end }}
-                                    </div>
+                    {{ range .Site.Menus.main }}
+                        {{ if .Params.has_submenu }}
+                        <div class="relative group">
+                            <button class="flex items-center {{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">
+                                {{ .Name }}
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 {{ $dropdownConfig.width | default "w-72" }} opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                                <div class="{{ $dropdownConfig.container_padding | default "py-6" }} {{ $dropdownConfig.background | default "bg-white" }} {{ $dropdownConfig.border | default "border border-gray-100" }} {{ $dropdownConfig.shadow | default "shadow-xl" }} {{ $dropdownConfig.radius | default "rounded-lg" }}">
+                                    {{ range .Params.submenu }}
+                                    <a href="{{ .url }}" class="block {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}">{{ .name }}</a>
+                                    {{ end }}
                                 </div>
                             </div>
-                            {{ else }}
-                            <a href="{{ .url }}" class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .name }}</a>
-                            {{ end }}
+                        </div>
+                        {{ else }}
+                        <a href="{{ .URL }}" class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .Name }}</a>
                         {{ end }}
                     {{ end }}
 
@@ -80,26 +76,23 @@
         <!-- Mobile Menu -->
         <div class="nav-content xl:hidden w-full fixed left-0 right-0 top-20 bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div class="w-full px-6 py-4">
-                {{ $menus := index .Site.Data.menus .Site.Language.Lang }}
-                {{ if and $menus $menus.main }}
-                    {{ range $menus.main }}
-                        {{ if .submenu }}
-                        <div class="py-2">
-                            <button class="flex items-center justify-between w-full text-xl text-gray-900 font-bold py-2 mobile-submenu-toggle" aria-expanded="false">
-                                {{ .name }}
-                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div class="pl-4 hidden mobile-submenu-content">
-                                {{ range .submenu }}
-                                <a href="{{ .url }}" class="block text-gray-700 hover:text-primary-600 py-2">{{ .name }}</a>
-                                {{ end }}
-                            </div>
+                {{ range .Site.Menus.main }}
+                    {{ if .Params.has_submenu }}
+                    <div class="py-2">
+                        <button class="flex items-center justify-between w-full text-xl text-gray-900 font-bold py-2 mobile-submenu-toggle" aria-expanded="false">
+                            {{ .Name }}
+                            <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="pl-4 hidden mobile-submenu-content">
+                            {{ range .Params.submenu }}
+                            <a href="{{ .url }}" class="block text-gray-700 hover:text-primary-600 py-2">{{ .name }}</a>
+                            {{ end }}
                         </div>
-                        {{ else }}
-                        <a href="{{ .url }}" class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .name }}</a>
-                        {{ end }}
+                    </div>
+                    {{ else }}
+                    <a href="{{ .URL }}" class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .Name }}</a>
                     {{ end }}
                 {{ end }}
 
@@ -107,8 +100,8 @@
                 {{ if hugo.IsMultilingual }}
                 <div class="py-4 border-t border-gray-200 mt-4">
                     <select id="mobile-language-select" class="block w-full px-6 py-3 rounded-lg font-bold text-base transition duration-200 ease-in-out border-2 border-gray-200 hover:border-primary-600 bg-white text-gray-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-primary-600">
-                        {{ range .Site.Languages }}
-                        <option value="{{ .Lang }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>{{ .LanguageName }}</option>
+                        {{ range .AllTranslations }}
+                        <option value="{{ .RelPermalink }}" data-lang="{{ .Lang }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>{{ .Language.LanguageName }}</option>
                         {{ end }}
                     </select>
                 </div>
@@ -176,11 +169,13 @@
             var mobileLangSelect = document.getElementById('mobile-language-select');
             if (mobileLangSelect) {
                 mobileLangSelect.addEventListener('change', function() {
-                    var lang = this.value;
+                    var selectedOption = this.options[this.selectedIndex];
+                    var lang = selectedOption.getAttribute('data-lang');
+                    var url = this.value;
                     if (typeof localStorage !== 'undefined') {
                         localStorage.setItem('hugo_preferred_language', lang);
                     }
-                    window.location.href = '/' + lang + '/';
+                    window.location.href = url;
                 });
             }
         })();
