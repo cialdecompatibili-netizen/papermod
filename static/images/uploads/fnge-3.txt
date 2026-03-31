@@ -1,0 +1,69 @@
+import pyautogui
+import time
+import pyperclip
+
+def console_js(js):
+    pyautogui.hotkey('ctrl', 'shift', 'j')
+    time.sleep(1.5)
+    pyautogui.click(960, 800)
+    time.sleep(0.5)
+    # Scrivi JS carattere per carattere invece di incollare
+    for c in js:
+        pyautogui.typewrite(c, interval=0.03)
+    time.sleep(0.3)
+    pyautogui.press('enter')
+    time.sleep(0.8)
+    pyautogui.hotkey('ctrl', 'shift', 'j')
+    time.sleep(0.5)
+    return pyperclip.paste()
+
+def aspetta_fine_risposta():
+    print("Aspetto che Copilot finisca...", end="", flush=True)
+    time.sleep(3)
+    
+    while True:
+        js_check = "copy(document.querySelector('[aria-label=\"Stop generating\"]') ? 'scrivendo' : 'finito')"
+        stato = console_js(js_check)
+        
+        if "finito" in stato:
+            print(" fatto!")
+            break
+        
+        print(".", end="", flush=True)
+        time.sleep(2)
+
+def get_risposta():
+    js = "copy(document.querySelectorAll('[data-content]')[document.querySelectorAll('[data-content]').length-1]?.innerText)"
+    return console_js(js)
+
+def invia_messaggio(messaggio):
+    pyautogui.hotkey('alt', 'left')
+    time.sleep(2)
+
+    pyautogui.click(960, 912)
+    time.sleep(1)
+
+    for c in messaggio:
+        pyautogui.typewrite(c, interval=0.15)
+        time.sleep(0.05)
+
+    time.sleep(0.3)
+    pyautogui.press('enter')
+
+    aspetta_fine_risposta()
+    return get_risposta()
+
+print("=" * 60)
+print("CHAT CON COPILOT - scrivi 'esci' per uscire")
+print("=" * 60)
+input("Premi INVIO quando Copilot è aperto nel browser...")
+
+while True:
+    messaggio = input("\nTu: ")
+    if messaggio.lower() == "esci":
+        print("Chat terminata.")
+        break
+    
+    risposta = invia_messaggio(messaggio)
+    print(f"\nCopilot: {risposta}")
+    print("-" * 60)
