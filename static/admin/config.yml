@@ -7,7 +7,7 @@ backend:
   base_url: https://papermod-1rp.pages.dev
   auth_endpoint: api/auth
 
-local_backend: true
+# local_backend: true
 
 # --- CONFIGURAZIONE MULTILINGUA CMS ---
 # 'structure: multiple_files' significa che ogni lingua ha il suo file (post.md, post.en.md)
@@ -79,11 +79,14 @@ collections:
     i18n: true
     create: true
     delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
     fields:
-      - {label: Titolo, name: title, widget: string}
-      - {label: Data, name: date, widget: datetime}
-      - {label: Descrizione, name: description, widget: string, required: false}
-      - {label: Autore, name: author, widget: string, required: false}
+      - {label: Titolo, name: title, widget: string, i18n: true}
+      - {label: Data, name: date, widget: datetime, i18n: duplicate}
+      - {label: Descrizione, name: description, widget: string, required: false, i18n: true}
+      - {label: Autore, name: author, widget: string, required: false, i18n: true}
       - label: Categorie
         name: categories
         widget: relation
@@ -97,7 +100,7 @@ collections:
         i18n: true
       - {label: Tags, name: tags, widget: list, required: false, i18n: true}
       - {label: Immagine Copertina, name: featured_image, widget: image, required: false, default: "/images/blog/blog-1.jpg", i18n: duplicate}
-      - {label: Contenuto, name: body, widget: markdown}
+      - {label: Contenuto, name: body, widget: markdown, i18n: true}
   
   # Gestione Categorie (Titoli e Descrizioni personalizzate)
   - name: categories
