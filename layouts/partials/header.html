@@ -10,16 +10,15 @@
                     {{ with $headerConfig.logo }}
                         <img src="{{ .src | relURL }}" alt="{{ $.Site.Title }}" class="{{ with .class }}{{ . }}{{ else }}h-12{{ end }}">
                     {{ else }}
-                        <span class="text-3xl font-bold text-gray-900">{{ .Site.Title }}</span>
-                    {{ end }}
-                    {{ if .Site.Title }}
-                        <span class="text-3xl font-semibold text-gray-800">{{ .Site.Title }}</span>
+                        <span class="text-3xl font-bold text-gray-900">{{ $.Site.Title }}</span>
                     {{ end }}
                 </a>
 
                 <!-- Navigation -->
                 <div class="hidden xl:flex items-center {{ with $headerConfig.menu.spacing }}{{ . }}{{ else }}space-x-8{{ end }}">
-                    {{ $menus := index hugo.Data.menus .Site.Language.Lang }}
+                    {{ $lang := .Site.Language.Lang }}
+                    {{ $allMenus := site.Data.menus }}
+                    {{ $menus := index $allMenus $lang }}
                     {{ if and $menus $menus.main }}
                         {{ range $menus.main }}
                             {{ if .submenu }}
@@ -79,7 +78,9 @@
         <!-- Mobile Menu -->
         <div class="nav-content xl:hidden w-full fixed left-0 right-0 top-20 bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div class="w-full px-6 py-4">
-                {{ $menus := index hugo.Data.menus .Site.Language.Lang }}
+                {{ $lang := .Site.Language.Lang }}
+                {{ $allMenus := site.Data.menus }}
+                {{ $menus := index $allMenus $lang }}
                 {{ if and $menus $menus.main }}
                     {{ range $menus.main }}
                         {{ if .submenu }}

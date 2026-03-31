@@ -4,7 +4,7 @@
             <!-- Logo and Social Media -->
             <div class="flex-1">
                 <div class="flex items-center space-x-3 mb-4">
-                    <a href="{{ .Site.BaseURL }}" class="inline-block">
+                    <a href="{{ "/" | relLangURL }}" class="inline-block">
                         {{ with .Site.Params.logo }}
                             <img src="{{ . | relURL }}" alt="{{ $.Site.Title }}" class="h-6">
                         {{ end }}
@@ -40,7 +40,8 @@
                 </div>
             </div>
 
-            {{ $menus := index .Site.Data.menus .Site.Language.Lang }}
+            {{ $lang := .Site.Language.Lang }}
+            {{ $menus := index site.Data.menus $lang }}
             <!-- Column 1 -->
             <div class="flex-1">
                 <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">{{ .Site.Params.footer.column_1_title }}</h3>

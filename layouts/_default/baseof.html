@@ -84,7 +84,7 @@
     {{ end }}
     <!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
-    <div class="fixed top-0 left-0 right-0 z-50">
+    <div class="fixed top-0 left-0 right-0 z-40">
         {{ partial "header" . }}
     </div>
 
@@ -107,17 +107,6 @@
     <script src="{{ "js/language-preference.js" | relURL }}"></script>
     {{ end }}
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu) {
-                    mobileMenu.classList.toggle('hidden');
-                }
-            });
-        }
-    </script>
+    <!-- Mobile Menu Script - handled by header checkbox toggle -->
 </body>
 </html>
