@@ -55,24 +55,7 @@ collections:
             default: "/blog"
             required: false
             hint: "Seleziona la pagina che mostrerà l'elenco degli articoli"
-          - label: "🗺️ Sitemap IT"
-            name: "sitemap_it"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/it/sitemap.xml"
-            required: false
-            hint: "Copia nel browser per verificare la sitemap italiana"
-          - label: "🗺️ Sitemap EN"
-            name: "sitemap_en"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/en/sitemap.xml"
-            required: false
-            hint: "Copia nel browser per verificare la sitemap inglese"
-          - label: "🗺️ Sitemap Index (da inviare a Google)"
-            name: "sitemap_index"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/sitemap.xml"
-            required: false
-            hint: "Invia questo URL a Google Search Console"
+
       - label: Generale & Social
         name: general
         file: content/_index.md
