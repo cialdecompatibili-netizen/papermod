@@ -1,100 +1,46 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sitemap — Admin</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      padding: 40px;
-      max-width: 520px;
-      width: 100%;
-    }
-    h1 { font-size: 1.3rem; color: #1a1a2e; margin-bottom: 8px; }
-    p { color: #666; font-size: 0.9rem; margin-bottom: 28px; }
-    .link-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 18px;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      text-decoration: none;
-      color: #1a1a2e;
-      transition: all 0.15s;
-    }
-    .link-item:hover {
-      border-color: #6366f1;
-      background: #f5f3ff;
-      transform: translateX(3px);
-    }
-    .icon { font-size: 1.5rem; flex-shrink: 0; }
-    .text strong { display: block; font-size: 0.95rem; }
-    .text span { font-size: 0.78rem; color: #888; }
-    .badge {
-      margin-left: auto;
-      background: #6366f1;
-      color: white;
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-    .back {
-      display: inline-block;
-      margin-top: 24px;
-      font-size: 0.85rem;
-      color: #6366f1;
-      text-decoration: none;
-    }
-    .back:hover { text-decoration: underline; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitemap</title>
+<style>
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .wrap { background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.09); padding: 40px 36px; width: 100%; max-width: 480px; }
+  h1 { font-size: 1.25rem; color: #111; margin: 0 0 6px; }
+  p  { font-size: .88rem; color: #666; margin: 0 0 28px; }
+  a.item { display: flex; align-items: center; gap: 14px; padding: 15px 16px; border: 1.5px solid #e5e7eb; border-radius: 10px; text-decoration: none; color: #111; margin-bottom: 12px; transition: .15s; }
+  a.item:hover { border-color: #6366f1; background: #f5f3ff; }
+  .ico { font-size: 1.6rem; flex-shrink: 0; }
+  .txt strong { display: block; font-size: .95rem; }
+  .txt small  { color: #888; font-size: .76rem; }
+  .badge { margin-left: auto; background: #6366f1; color: #fff; font-size: .7rem; border-radius: 20px; padding: 3px 10px; white-space: nowrap; }
+  .back { display: inline-block; margin-top: 24px; font-size: .84rem; color: #6366f1; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>🗺️ Sitemap del sito</h1>
-    <p>Apri una sitemap per verificarla o copiala per inviarla a Google Search Console.</p>
+<div class="wrap">
+  <h1>🗺️ Sitemap del sito</h1>
+  <p>Clicca per aprire una sitemap o inviala a Google Search Console.</p>
 
-    <a class="link-item" href="https://papermod-1rp.pages.dev/sitemap.xml" target="_blank">
-      <span class="icon">📋</span>
-      <div class="text">
-        <strong>Sitemap Index</strong>
-        <span>Tutte le lingue — da inviare a Google</span>
-      </div>
-      <span class="badge">⭐ Principale</span>
-    </a>
+  <a class="item" href="https://papermod-1rp.pages.dev/sitemap.xml" target="_blank">
+    <span class="ico">📋</span>
+    <div class="txt"><strong>Sitemap Index</strong><small>Tutte le lingue — da inviare a Google</small></div>
+    <span class="badge">⭐ Principale</span>
+  </a>
 
-    <a class="link-item" href="https://papermod-1rp.pages.dev/it/sitemap.xml" target="_blank">
-      <span class="icon">🇮🇹</span>
-      <div class="text">
-        <strong>Sitemap Italiano</strong>
-        <span>papermod-1rp.pages.dev/it/sitemap.xml</span>
-      </div>
-    </a>
+  <a class="item" href="https://papermod-1rp.pages.dev/it/sitemap.xml" target="_blank">
+    <span class="ico">🇮🇹</span>
+    <div class="txt"><strong>Sitemap Italiano</strong><small>/it/sitemap.xml</small></div>
+  </a>
 
-    <a class="link-item" href="https://papermod-1rp.pages.dev/en/sitemap.xml" target="_blank">
-      <span class="icon">🇬🇧</span>
-      <div class="text">
-        <strong>Sitemap Inglese</strong>
-        <span>papermod-1rp.pages.dev/en/sitemap.xml</span>
-      </div>
-    </a>
+  <a class="item" href="https://papermod-1rp.pages.dev/en/sitemap.xml" target="_blank">
+    <span class="ico">🇬🇧</span>
+    <div class="txt"><strong>Sitemap Inglese</strong><small>/en/sitemap.xml</small></div>
+  </a>
 
-    <a class="back" href="/admin/">← Torna all'admin</a>
-  </div>
+  <a class="back" href="/admin/">← Torna all'admin</a>
+</div>
 </body>
 </html>

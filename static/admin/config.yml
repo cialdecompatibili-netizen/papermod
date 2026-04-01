@@ -64,26 +64,21 @@ collections:
           - {label: Titolo Sito, name: title, widget: string}
           - {label: Descrizione SEO, name: description, widget: string}
           - {label: Logo, name: logo, widget: image, required: false}
-          - label: "🗺️ Sitemap del sito"
-            name: "sitemap_url"
+          - label: "🗺️ Link Sitemap"
+            name: "sitemap_note"
             widget: "string"
             default: "https://papermod-1rp.pages.dev/admin/sitemaps.html"
             required: false
-            hint: "Copia questo link nel browser per vedere e verificare le sitemap IT, EN e Index"
+            hint: "Apri questo link nel browser per vedere le sitemap IT, EN e Index cliccabili"
 
       - label: Impostazioni Social
         name: social_settings
-        file: content/_index.md
-        i18n: true
+        file: data/social.yml
         fields:
-          - label: Social Media
-            name: social
-            widget: object
-            fields:
-              - {label: LinkedIn, name: linkedin, widget: string, required: false}
-              - {label: Twitter/X, name: twitter, widget: string, required: false}
-              - {label: GitHub, name: github, widget: string, required: false}
-              - {label: Instagram, name: instagram, widget: string, required: false}
+          - {label: LinkedIn, name: linkedin, widget: string, required: false}
+          - {label: Twitter/X, name: twitter, widget: string, required: false}
+          - {label: GitHub, name: github, widget: string, required: false}
+          - {label: Instagram, name: instagram, widget: string, required: false}
 
   # Gestione Articoli del Blog
   - name: blog
