@@ -47,9 +47,9 @@ footer_column_2:
     url: /careers
     weight: 3
 footer_column_3:
-  - name: Licenza
-    url: /license
-    weight: 1
   - name: Privacy Policy
     url: /privacy
     weight: 2
+  - name: Licenza
+    url: /license
+    weight: 1
