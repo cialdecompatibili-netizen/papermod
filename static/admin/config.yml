@@ -26,7 +26,7 @@ collections:
   - name: settings
     label: Impostazioni Sito
     files:
-      - label: "Impostazioni Lettura (WordPress Style)"
+      - label: "Impostazioni Lettura"
         name: "reading"
         file: "data/settings.yml"
         i18n: true
@@ -55,6 +55,24 @@ collections:
             default: "/blog"
             required: false
             hint: "Seleziona la pagina che mostrerà l'elenco degli articoli"
+          - label: "🗺️ Sitemap IT"
+            name: "sitemap_it"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/it/sitemap.xml"
+            required: false
+            hint: "Copia nel browser per verificare la sitemap italiana"
+          - label: "🗺️ Sitemap EN"
+            name: "sitemap_en"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/en/sitemap.xml"
+            required: false
+            hint: "Copia nel browser per verificare la sitemap inglese"
+          - label: "🗺️ Sitemap Index (da inviare a Google)"
+            name: "sitemap_index"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/sitemap.xml"
+            required: false
+            hint: "Invia questo URL a Google Search Console"
       - label: Generale & Social
         name: general
         file: content/_index.md
@@ -71,29 +89,6 @@ collections:
               - {label: Twitter, name: twitter, widget: string, required: false}
               - {label: GitHub, name: github, widget: string, required: false}
               - {label: Instagram, name: instagram, widget: string, required: false}
-
-      - label: "SEO & Sitemap"
-        name: "seo_sitemap"
-        file: "data/settings.yml"
-        fields:
-          - label: "🗺️ Sitemap IT"
-            name: "sitemap_it_info"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/it/sitemap.xml"
-            hint: "👆 Copia questo URL per vedere la sitemap italiana — aprila nel browser per verificarla"
-            required: false
-          - label: "🗺️ Sitemap EN"
-            name: "sitemap_en_info"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/en/sitemap.xml"
-            hint: "👆 Copia questo URL per vedere la sitemap inglese"
-            required: false
-          - label: "🗺️ Sitemap Index (tutte)"
-            name: "sitemap_index_info"
-            widget: "string"
-            default: "https://papermod-1rp.pages.dev/sitemap.xml"
-            hint: "👆 Sitemap principale che include tutte le lingue — da inviare a Google Search Console"
-            required: false
 
   # Gestione Articoli del Blog
   - name: blog
