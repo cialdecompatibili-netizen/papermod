@@ -113,14 +113,26 @@ collections:
   - name: categories
     label: Gestore Categorie
     folder: content/categories
+    i18n: true
     create: true
     delete: true
     slug: "{{slug}}"
     fields:
-      - {label: Nome Categoria, name: title, widget: string}
-      - {label: "Bozza (Draft)", name: draft, widget: boolean, default: true, i18n: duplicate}
-      - {label: Descrizione Categoria, name: description, widget: markdown, required: false}
-      - {label: Immagine Categoria, name: image, widget: image, required: false}
+      - {label: "Nome Categoria", name: title, widget: string, i18n: true}
+      - {label: "Bozza (Draft)", name: draft, widget: boolean, default: false, i18n: duplicate, hint: "Se attivo, la categoria NON apparirà sul sito pubblico"}
+      - {label: "Descrizione Breve", name: description, widget: string, required: false, i18n: true, hint: "Breve descrizione usata nei meta tag SEO e sotto il titolo categoria"}
+      - {label: "Descrizione Completa", name: body, widget: markdown, required: false, i18n: true, hint: "Testo lungo che appare nella pagina della categoria (come WordPress)"}
+      - {label: "Immagine Categoria", name: image, widget: image, required: false, i18n: duplicate, hint: "Immagine di copertina per la categoria"}
+      - label: "SEO & Social"
+        name: seo
+        widget: object
+        collapsed: true
+        i18n: true
+        required: false
+        fields:
+          - {label: "Titolo SEO", name: seo_title, widget: string, required: false, hint: "Se vuoto, usa il nome della categoria"}
+          - {label: "Descrizione SEO", name: seo_description, widget: text, required: false, hint: "Se vuoto, usa la descrizione breve sopra"}
+          - {label: "Immagine Social (OG)", name: og_image, widget: image, required: false, hint: "Immagine per la condivisione su Facebook/LinkedIn"}
   
   # Gestione Pagine (WordPress Style)
   - name: pages

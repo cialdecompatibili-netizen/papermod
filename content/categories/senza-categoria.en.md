@@ -1,4 +1,5 @@
 ---
 title: "Uncategorized"
-description: "Posts that haven't been assigned to a specific category yet."
+draft: false
+description: "Articles that have not yet been assigned to a specific category."
 ---
