@@ -72,6 +72,29 @@ collections:
               - {label: GitHub, name: github, widget: string, required: false}
               - {label: Instagram, name: instagram, widget: string, required: false}
 
+      - label: "SEO & Sitemap"
+        name: "seo_sitemap"
+        file: "data/settings.yml"
+        fields:
+          - label: "🗺️ Sitemap IT"
+            name: "sitemap_it_info"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/it/sitemap.xml"
+            hint: "👆 Copia questo URL per vedere la sitemap italiana — aprila nel browser per verificarla"
+            required: false
+          - label: "🗺️ Sitemap EN"
+            name: "sitemap_en_info"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/en/sitemap.xml"
+            hint: "👆 Copia questo URL per vedere la sitemap inglese"
+            required: false
+          - label: "🗺️ Sitemap Index (tutte)"
+            name: "sitemap_index_info"
+            widget: "string"
+            default: "https://papermod-1rp.pages.dev/sitemap.xml"
+            hint: "👆 Sitemap principale che include tutte le lingue — da inviare a Google Search Console"
+            required: false
+
   # Gestione Articoli del Blog
   - name: blog
     label: Blog
